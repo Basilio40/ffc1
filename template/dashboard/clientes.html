@@ -1,0 +1,234 @@
+{% extends 'components/base.html' %}
+{% load static %}
+
+    {% block styles %}
+
+    {% endblock %}
+    
+        {% block content %}
+            <!-- PAGE-HEADER -->
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Clientes</h1>
+                    
+                </div>
+                <div class="ms-auto pageheader-btn">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">Apps</li>
+                        <li class="breadcrumb-item active" aria-current="page"><a href="javascript:void(0);">Clientes</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Lista</li>
+                    </ol>
+                </div>
+            </div>
+            <!-- PAGE-HEADER END -->
+
+            <!-- ROW-1 -->
+            <div class="row">
+                <div class="col-lg-6 col-sm-12 col-md-6 col-xl-3">
+                    <div class="card overflow-hidden">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h3 class="mb-2 fw-bold">{{ativos}}</h3>
+                                    <p class="fs-13 mb-0">Clientes Ativos</p>
+                                </div>
+                                <div class="col col-auto top-icn dash">
+                                    <div class="counter-icon c-bg-teal ms-auto box-shadow-primary">
+                                        <svg class="fill-white" enable-background="new 0 0 24 24" viewBox="0 0 24 24">
+                                            <path fill="currentColor" d="M12,5.5C13.93,5.5 15.5,7.07 15.5,9C15.5,10.93 13.93,12.5 12,12.5C10.07,12.5 8.5,10.93 8.5,9C8.5,7.07 10.07,5.5 12,5.5M5,8C5.56,8 6.08,8.15 6.53,8.42C6.38,9.85 6.8,11.27 7.66,12.38C7.16,13.34 6.16,14 5,14C3.34,14 2,12.66 2,11C2,9.34 3.34,8 5,8M19,8C20.66,8 22,9.34 22,11C22,12.66 20.66,14 19,14C17.84,14 16.84,13.34 16.34,12.38C17.2,11.27 17.62,9.85 17.47,8.42C17.92,8.15 18.44,8 19,8M5.5,18.25C5.5,16.18 8.41,14.5 12,14.5C15.59,14.5 18.5,16.18 18.5,18.25V20H5.5V18.25M0,20V18.5C0,17.11 1.89,15.94 4.45,15.6C3.86,16.28 3.5,17.22 3.5,18.25V20H0M24,20H20.5V18.25C20.5,17.22 20.14,16.28 19.55,15.6C22.11,15.94 24,17.11 24,18.5V20Z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-sm-12 col-md-6 col-xl-3">
+                    <div class="card overflow-hidden">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h3 class="mb-2 fw-bold">{{implantacao}}</h3>
+                                    <p class="fs-13 mb-0">Clientes em Implantação</p>
+                                </div>
+                                <div class="col col-auto top-icn dash">
+                                    <div class="counter-icon c-bg-yellow ms-auto box-shadow-secondary">
+                                        <svg class="fill-white" enable-background="new 0 0 24 24" viewBox="0 0 24 24">
+                                            <path fill="currentColor" d="M12,5.5C13.93,5.5 15.5,7.07 15.5,9C15.5,10.93 13.93,12.5 12,12.5C10.07,12.5 8.5,10.93 8.5,9C8.5,7.07 10.07,5.5 12,5.5M5,8C5.56,8 6.08,8.15 6.53,8.42C6.38,9.85 6.8,11.27 7.66,12.38C7.16,13.34 6.16,14 5,14C3.34,14 2,12.66 2,11C2,9.34 3.34,8 5,8M19,8C20.66,8 22,9.34 22,11C22,12.66 20.66,14 19,14C17.84,14 16.84,13.34 16.34,12.38C17.2,11.27 17.62,9.85 17.47,8.42C17.92,8.15 18.44,8 19,8M5.5,18.25C5.5,16.18 8.41,14.5 12,14.5C15.59,14.5 18.5,16.18 18.5,18.25V20H5.5V18.25M0,20V18.5C0,17.11 1.89,15.94 4.45,15.6C3.86,16.28 3.5,17.22 3.5,18.25V20H0M24,20H20.5V18.25C20.5,17.22 20.14,16.28 19.55,15.6C22.11,15.94 24,17.11 24,18.5V20Z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-sm-12 col-md-6 col-xl-3">
+                    <div class="card overflow-hidden">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h3 class="mb-2 fw-bold">{{inativos}}</h3>
+                                    <p class="fs-13 mb-0">Clientes não ativos</p>
+                                </div>
+                                <div class="col col-auto top-icn dash">
+                                    <div class="counter-icon c-bg-red ms-auto box-shadow-info">
+                                        <svg class="fill-white" enable-background="new 0 0 24 24" viewBox="0 0 24 24">
+                                            <path fill="currentColor" d="M12,5.5C13.93,5.5 15.5,7.07 15.5,9C15.5,10.93 13.93,12.5 12,12.5C10.07,12.5 8.5,10.93 8.5,9C8.5,7.07 10.07,5.5 12,5.5M5,8C5.56,8 6.08,8.15 6.53,8.42C6.38,9.85 6.8,11.27 7.66,12.38C7.16,13.34 6.16,14 5,14C3.34,14 2,12.66 2,11C2,9.34 3.34,8 5,8M19,8C20.66,8 22,9.34 22,11C22,12.66 20.66,14 19,14C17.84,14 16.84,13.34 16.34,12.38C17.2,11.27 17.62,9.85 17.47,8.42C17.92,8.15 18.44,8 19,8M5.5,18.25C5.5,16.18 8.41,14.5 12,14.5C15.59,14.5 18.5,16.18 18.5,18.25V20H5.5V18.25M0,20V18.5C0,17.11 1.89,15.94 4.45,15.6C3.86,16.28 3.5,17.22 3.5,18.25V20H0M24,20H20.5V18.25C20.5,17.22 20.14,16.28 19.55,15.6C22.11,15.94 24,17.11 24,18.5V20Z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-sm-12 col-md-6 col-xl-3">
+                    <div class="card overflow-hidden">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h3 class="mb-2 fw-bold">{{total}}</h3>
+                                    <p class="fs-13 mb-0">Clientes no total</p>
+                                </div>
+                                <div class="col col-auto top-icn dash">
+                                    <div class="counter-icon c-bg-green ms-auto box-shadow-warning">
+                                        <svg class="fill-white" enable-background="new 0 0 24 24" viewBox="0 0 24 24">
+                                            <path fill="currentColor" d="M12,5.5C13.93,5.5 15.5,7.07 15.5,9C15.5,10.93 13.93,12.5 12,12.5C10.07,12.5 8.5,10.93 8.5,9C8.5,7.07 10.07,5.5 12,5.5M5,8C5.56,8 6.08,8.15 6.53,8.42C6.38,9.85 6.8,11.27 7.66,12.38C7.16,13.34 6.16,14 5,14C3.34,14 2,12.66 2,11C2,9.34 3.34,8 5,8M19,8C20.66,8 22,9.34 22,11C22,12.66 20.66,14 19,14C17.84,14 16.84,13.34 16.34,12.38C17.2,11.27 17.62,9.85 17.47,8.42C17.92,8.15 18.44,8 19,8M5.5,18.25C5.5,16.18 8.41,14.5 12,14.5C15.59,14.5 18.5,16.18 18.5,18.25V20H5.5V18.25M0,20V18.5C0,17.11 1.89,15.94 4.45,15.6C3.86,16.28 3.5,17.22 3.5,18.25V20H0M24,20H20.5V18.25C20.5,17.22 20.14,16.28 19.55,15.6C22.11,15.94 24,17.11 24,18.5V20Z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ROW-1 END-->
+
+            <!-- ROW-2 -->
+            <div class="row">
+                <div class="btns_container">
+                    <button class="btn btn-primary"> <i class="fa fa-plus-square-o"></i> Novo Cliente</button>
+                    <button
+                    id="button"
+                    type="button"
+                    class="btn btn-dark"
+                    data-bs-toggle="modal"
+                    data-bs-target=".exampleModal"
+                    hx-get="{% url 'cliente_form' %}"
+                    hx-target="#Label"
+                    hx-swap="innerHTML"
+                     > <i class="fa fa-pencil-square-o"></i> Editar Cliente</button>
+
+                </div>
+            </div>
+            <!-- ROW-2 END -->
+
+            <!-- ROW-3 -->
+            <div class="row">
+                <div class="col-12 col-sm-12">
+                    <div class="card product-sales-main">
+                        <div class="card-header border-bottom">
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table id="data-table" class="table text-nowrap mb-0 table-bordered">
+                                    <thead class="table-head">
+                                        <tr>
+                                            <th class="bg-transparent border-bottom-0"></th>
+                                            <th class="bg-transparent border-bottom-0">ID</th>
+                                            <th class="bg-transparent border-bottom-0">Nome</th>
+                                            <th class="bg-transparent border-bottom-0">Nome Curto</th>
+                                            <th class="bg-transparent border-bottom-0">Tipo</th>
+                                            <th class="bg-transparent border-bottom-0">Farmer</th>
+                                            <th class="bg-transparent border-bottom-0 no-btn">Contato Primário</th>
+                                            <th class="bg-transparent border-bottom-0 no-btn">Razão Social</th>
+                                            <th class="bg-transparent border-bottom-0 no-btn">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="table-body">
+                                        {% for cliente in clientes %}
+                                        <tr>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input font-size-16" type="checkbox" value="" id="input">
+                                                    <label class="form-check-label" for="flexCheckexampleone">
+                                                    </label>
+                                                  </div>
+                                            </td>
+                                            <td>
+                                                <span>{{cliente.id}}</span>
+                                            </td>
+                                            <td><a href="project-details" class="text-dark">{{cliente.nome}}</a></td>
+                                            <td>{{cliente.nome_curto}}</td>
+                                            <td>{{cliente.tipo}}</td>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <span class="data-image avatar avatar-md rounded-circle" style="background-image: url(https://media.licdn.com/dms/image/C4D03AQH4EqN4MWt2qQ/profile-displayphoto-shrink_800_800/0/1516977623063?e=1678924800&v=beta&t=qUxAMGFcbYeYDlYi2zO8HGcJVlRRv5JTGOqpF0vBiwM)"></span>
+                                                    <div class="user-details ms-2">
+                                                        <h6 class="mb-0">Mauricio Ribeiro</h6>
+                                                        <span class="text-muted fs-12">mauricio@ffcservicos.com.br</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <span class="data-image avatar avatar-md rounded-circle" style="background-image: url(https://media.licdn.com/dms/image/C4E03AQEb3cr6PDi2hg/profile-displayphoto-shrink_800_800/0/1554571393601?e=1678924800&v=beta&t=rSDltFouZ_MjSzq-XeZYzcm26eg_NrU3aEfLng-kZgI);"></span>
+                                                    <div class="user-details ms-2">
+                                                        <h6 class="mb-0">{{cliente.fkcontatoprimario}}</h6>
+                                                        <span class="text-muted fs-12">mauricio.bartell@lebes.com.br</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>{{cliente.razaosocial}}</td>
+                                            <td>
+                                                <span class="status-indicator projects completed">{{cliente.status}}</span>
+                                            </td>
+                                        </tr>
+
+                                        {% endfor %}
+ 
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- COL END -->
+            </div>
+            <!-- ROW-3 END -->
+            {% include '../hx/modal.html' %}
+
+        <script>
+            //desabilita o botão no início
+            document.getElementById("button").disabled = true;
+
+            //cria um event listener que escuta mudanças no input
+            document.getElementById("input").addEventListener("input", function(event){
+            console.log("O cliente marcou o checkbox");
+
+            //busca conteúdo do input
+                var conteudo = document.getElementById("input").value;
+
+                //valida conteudo do input 
+                if (conteudo !== null && conteudo !== '') {
+                    console.log("O cliente marcou o checkbox");
+                //habilita o botão
+                document.getElementById("button").disabled = true;
+                } else {
+                //desabilita o botão se o conteúdo do input ficar em branco
+                document.getElementById("button").disabled = false;
+                }
+            });
+        </script>
+		{% endblock %}
+
+    {% block scripts %}
+	<!-- INTERNAL SELECT2 JS -->
+	<script src="{% static 'assets/plugins/select2/select2.full.min.js'%}"></script>
+
+	<!-- INTERNAL Data tables js-->
+	<script src="{% static 'assets/plugins/datatable/js/jquery.dataTables.min.js'%}"></script>
+	<script src="{% static 'assets/plugins/datatable/js/dataTables.bootstrap5.js'%}"></script>
+	<script src="{% static 'assets/plugins/datatable/dataTables.responsive.min.js'%}"></script>
+
+	<!-- INDEX JS -->
+	<script src="{% static 'assets/js/index1.js'%}"></script>
+    {% endblock %}
