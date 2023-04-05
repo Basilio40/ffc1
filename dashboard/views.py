@@ -16,9 +16,9 @@ def index(request):
     return render(request, 'dashboard/index.html')
 
 def criar_usuario(request):
-    user = User.objects.create_user(username="cliente",password="1234")
+    user = User.objects.create_user(username="farmer",password="1234")
     user.save()
-    assign_role(user, 'cliente')
+    assign_role(user, 'farmer')
     return HttpResponse('Usuario salvo com sucesso')
 
 # Auth

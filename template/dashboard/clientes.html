@@ -97,7 +97,7 @@
                     hx-get="{% url 'cliente_form' %}"
                     hx-target="#Label"
                     hx-swap="innerHTML"
-                     > <i class="fa fa-pencil-square-o"></i> Editar Cliente</button>
+                    disabled> <i class="fa fa-pencil-square-o"></i> Editar Cliente</button>
 
                 </div>
             </div>
@@ -111,10 +111,9 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table id="data-table" class="table text-nowrap mb-0 table-bordered">
+                                <table id="data-table" class="table text-nowrap mb-0 table-bordered" style="cursor: pointer;">
                                     <thead class="table-head">
                                         <tr>
-                                            <th class="bg-transparent border-bottom-0"></th>
                                             <th class="bg-transparent border-bottom-0">ID</th>
                                             <th class="bg-transparent border-bottom-0">Nome</th>
                                             <th class="bg-transparent border-bottom-0">Nome Curto</th>
@@ -125,23 +124,16 @@
                                             <th class="bg-transparent border-bottom-0 no-btn">Status</th>
                                         </tr>
                                     </thead>
-                                    <tbody class="table-body">
+                                    <tbody class="table-body" id="tabelaSelec">
                                         {% for cliente in clientes %}
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <input class="form-check-input font-size-16" type="checkbox" value="" id="input">
-                                                    <label class="form-check-label" for="flexCheckexampleone">
-                                                    </label>
-                                                  </div>
-                                            </td>
-                                            <td>
+                                        <tr class="text-dark">
+                                            <td class="text-dark">
                                                 <span>{{cliente.id}}</span>
                                             </td>
-                                            <td><a href="project-details" class="text-dark">{{cliente.nome}}</a></td>
-                                            <td>{{cliente.nome_curto}}</td>
-                                            <td>{{cliente.tipo}}</td>
-                                            <td>
+                                            <td class="text-dark"><a href="project-details" class="text-dark">{{cliente.nome}}</a></td>
+                                            <td class="text-dark">{{cliente.nome_curto}}</td>
+                                            <td class="text-dark">{{cliente.tipo}}</td>
+                                            <td class="text-dark">
                                                 <div class="d-flex align-items-center">
                                                     <span class="data-image avatar avatar-md rounded-circle" style="background-image: url(https://media.licdn.com/dms/image/C4D03AQH4EqN4MWt2qQ/profile-displayphoto-shrink_800_800/0/1516977623063?e=1678924800&v=beta&t=qUxAMGFcbYeYDlYi2zO8HGcJVlRRv5JTGOqpF0vBiwM)"></span>
                                                     <div class="user-details ms-2">
@@ -159,8 +151,8 @@
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td>{{cliente.razaosocial}}</td>
-                                            <td>
+                                            <td class="text-dark">{{cliente.razaosocial}}</td>
+                                            <td class="text-dark">
                                                 <span class="status-indicator projects completed">{{cliente.status}}</span>
                                             </td>
                                         </tr>
@@ -176,29 +168,44 @@
             </div>
             <!-- ROW-3 END -->
             {% include '../hx/modal.html' %}
-
-        <script>
-            //desabilita o botão no início
-            document.getElementById("button").disabled = true;
-
-            //cria um event listener que escuta mudanças no input
-            document.getElementById("input").addEventListener("input", function(event){
-            console.log("O cliente marcou o checkbox");
-
-            //busca conteúdo do input
-                var conteudo = document.getElementById("input").value;
-
-                //valida conteudo do input 
-                if (conteudo !== null && conteudo !== '') {
-                    console.log("O cliente marcou o checkbox");
-                //habilita o botão
+            <script>
+            var table = document.getElementById("tabelaSelec");
+            var linha = document.getElementById("tr")
+            var botao = document.getElementById("button")
+            table.addEventListener("click", function() {
+                var linhasSelecionadas = table.querySelectorAll("tr.selecionado");
+                console.log("clinado na tabela");
+                if (linha !== null && linha !== '') {
                 document.getElementById("button").disabled = true;
                 } else {
-                //desabilita o botão se o conteúdo do input ficar em branco
-                document.getElementById("button").disabled = false;
+            //desabilita o botão se o conteúdo do input ficar em branco
+            document.getElementById("button").disabled = false;
                 }
             });
-        </script>
+            
+            </script>
+            <script>
+            // Selecione todas as linhas da tabela que você deseja tornar selecionáveis.
+            const linhasSelecionaveis = document.querySelectorAll('.text-dark');
+
+            // Adicione um ouvinte de evento de clique a cada linha selecionável.
+            linhasSelecionaveis.forEach(linha => {
+              linha.addEventListener('click', () => {
+                // Remova a cor de fundo de todas as linhas selecionadas anteriormente.
+                linhasSelecionaveis.forEach(linha => {
+                  linha.style.backgroundColor = '';
+                });
+            
+                // Defina a cor de fundo da linha atual como a cor selecionada.
+                linha.style.backgroundColor = '#99BB64';
+                linha.style.bg-opacity-25;
+              });
+            });
+    
+            </script>
+
+            
+
 		{% endblock %}
 
     {% block scripts %}
