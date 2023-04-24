@@ -86,17 +86,22 @@
                     <!-- ROW-2 -->
                     <div class="row">
                         <div class="btns_container">
-                            <button class="btn btn-primary"> <i class="fa fa-plus-square-o"></i> Novo Cliente</button>
+                            <button class="btn btn-primary"> <i class="fa fa-plus-square-o"></i> Novo Seguradora</button>
+                            <button 
+                            id="button1" 
+                            type="button" 
+                            class="btn btn-warning"
+                            disabled> <i class="fa fa-plus-square-o"></i> Visualizar Seguradora</button>
                             <button
                             id="button"
                             type="button"
-                            class="btn btn-dark"
+                            class="btn btn-info"
                             data-bs-toggle="modal"
                             data-bs-target=".exampleModal"
                             hx-get="{% url 'modal'%}"
                             hx-target="#Label"
                             hx-swap="innerHTML"
-                             > <i class="fa fa-pencil-square-o"></i> Editar Cliente</button>
+                            disabled ><i class="fa fa-pencil-square-o"></i> Editar Seguradora</button>
         
                         </div>
                     </div>
@@ -113,7 +118,6 @@
                                         <table id="data-table" class="table text-nowrap mb-0 table-bordered">
                                             <thead class="table-head">
                                                 <tr>
-                                                    <th class="bg-transparent border-bottom-0"></th>
                                                     <th class="bg-transparent border-bottom-0">ID</th>
                                                     <th class="bg-transparent border-bottom-0">Nome</th>
                                                     <th class="bg-transparent border-bottom-0">Nome Curto</th>
@@ -123,17 +127,10 @@
                                                     <th class="bg-transparent border-bottom-0 no-btn">Status</th>
                                                 </tr>
                                             </thead>
-                                            <tbody class="table-body">
+                                            <tbody class="table-body" id="tabelaSelec">
                                                 {% for seguradora in seguradoras %}
-                                                <tr>
-                                                    <td>
-                                                        <div class="form-check">
-                                                            <input class="form-check-input font-size-16" type="checkbox" value="" id="input">
-                                                            <label class="form-check-label" for="flexCheckexampleone">
-                                                            </label>
-                                                          </div>
-                                                    </td>
-                                                    <td>
+                                                <tr class="text-dark">
+                                                    <td class="text-dark">
                                                         <span>{{seguradora.id}}</span>
                                                     </td>
                                                     <td><a href="project-details" class="text-dark">{{seguradora.nome}}</a></td>
@@ -157,7 +154,7 @@
                                                             </div>
                                                         </div>
                                                     </td>
-                                                    <td>
+                                                    <td class="text-dark">
                                                         <span class="status-indicator projects completed">{{seguradora.status}}</span>
                                                     </td>
                                                 </tr>
@@ -174,28 +171,48 @@
                     <!-- ROW-3 END -->
                     {% include '../hx/modal.html' %}
         
-                <script>
-                    //desabilita o botão no início
-                    document.getElementById("button").disabled = true;
-        
-                    //cria um event listener que escuta mudanças no input
-                    document.getElementById("input").addEventListener("input", function(event){
-                    console.log("O cliente marcou o checkbox");
-        
-                    //busca conteúdo do input
-                        var conteudo = document.getElementById("input").value;
-        
-                        //valida conteudo do input 
-                        if (conteudo !== null && conteudo !== '') {
-                            console.log("O cliente marcou o checkbox");
-                        //habilita o botão
-                        document.getElementById("button").disabled = true;
-                        } else {
+                    <script>
+                        var table = document.getElementById("tabelaSelec");
+                        var linha = document.getElementById("tr")
+                        var botao = document.getElementById("button")
+                        var botao = document.getElementById("button1")
+                        table.addEventListener("click", function() {
+                            var linhasSelecionadas = table.querySelectorAll("tr.selecionado");
+                            console.log("clinado na tabela");
+                            if (linha !== null && linha !== '') {
+                            document.getElementById("button").disabled = true;
+                            } else {
                         //desabilita o botão se o conteúdo do input ficar em branco
                         document.getElementById("button").disabled = false;
-                        }
-                    });
-                </script>
+                            }
+                            if (linha !== null && linha !== '') {
+                                document.getElementById("button1").disabled = true;
+                                } else {
+                            //desabilita o botão se o conteúdo do input ficar em branco
+                            document.getElementById("button1").disabled = false;
+                                }
+                        });
+                        
+                        </script>
+                        <script>
+                        // Selecione todas as linhas da tabela que você deseja tornar selecionáveis.
+                        const linhasSelecionaveis = document.querySelectorAll('.text-dark');
+            
+                        // Adicione um ouvinte de evento de clique a cada linha selecionável.
+                        linhasSelecionaveis.forEach(linha => {
+                          linha.addEventListener('click', () => {
+                            // Remova a cor de fundo de todas as linhas selecionadas anteriormente.
+                            linhasSelecionaveis.forEach(linha => {
+                              linha.style.backgroundColor = '';
+                            });
+                        
+                            // Defina a cor de fundo da linha atual como a cor selecionada.
+                            linha.style.backgroundColor = '#99BB64';
+                            linha.style.bg-opacity-25;
+                          });
+                        });
+                
+                        </script>
 		{% endblock %}
 
     {% block scripts %}
