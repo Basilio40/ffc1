@@ -1,0 +1,41 @@
+{% load static %}
+{% load crispy_forms_tags%}
+{% block content %}
+    <div class="card-body">
+        <div class="p-4 bg-light border-bottom">
+            <div class="modal d-block pos-static">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content modal-content-demo">
+                        <div class="modal-body">
+                            {% for item in cliente %}
+                            <div class="form-group">
+                                <label class="form-label text-muted">{{item.nome}}</label>
+                                <label class="form-label text-muted">{{item.nome_curto}}</label>
+                                <label class="form-label text-muted">{{item.status}}</label>
+                                <div class="input-group">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                
+                                <div class="input-group">
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit"  class="btn btn-primary">Enviar</button>
+                            <button class="btn btn-light" >Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- pd-y-50 -->
+    </div>
+</div>
+</form>
+
+{% endblock content %}

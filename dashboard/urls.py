@@ -28,7 +28,9 @@ urlpatterns = [
     path('usuarios/', views.usuarios, name='usuarios'),
     path('perfis/', views.perfis, name='perfis'),
     path('modal',views.modal, name='modal'),
+    path('modalview',views.modal, name='modalview'),
     path('cliente_form/',views.cliente_form,name='cliente_form'),
+    path('clientevisual/<str:id>',views.clientevisualiz,name='clientevisual'),
 ]
 
 # Formularios

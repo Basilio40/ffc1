@@ -1,5 +1,64 @@
         {% load static %}
-        
+
+        <script>
+            // Javascript customizado
+
+            const pageMain = document.querySelector('.page-main')
+            const cardBody = document.querySelectorAll('.card-body')
+
+            function apply_light_colors() {
+                if (pageMain) {
+                    pageMain.classList.remove('dark')
+                }
+                if (cardBody) {
+                    cardBody.forEach(card => {card.classList.remove('dark')})
+                    cardBody.forEach(card => {card.classList.add('light')})
+                }
+            }
+
+            function apply_dark_colors() {
+                if (pageMain) {
+                    pageMain.classList.add('dark')
+                }
+                if (cardBody) {
+                    cardBody.forEach(card => {card.classList.remove('light')})
+                    cardBody.forEach(card => {card.classList.add('dark')})
+                }
+            }
+            
+            // Select the node that will be observed for mutations
+            var targetNode = document.body;
+
+            // Options for the observer (which mutations to observe)
+            var config = { attributes: true, attributeFilter: ['class'] };
+
+            // Callback function to execute when mutations are observed
+            var callback = function(mutationsList, observer) {
+                for(let mutation of mutationsList) {
+
+                    if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                        if (targetNode.classList.contains('light-mode')) {
+                            apply_light_colors()
+                        } else if (targetNode.classList.contains('dark-mode')) {
+                            apply_dark_colors()
+                        };
+                    }
+                }
+            };
+
+            // Create an observer instance linked to the callback function
+            var observer = new MutationObserver(callback);
+
+            // Start observing the target node for configured mutations
+            observer.observe(targetNode, config);
+
+            if (targetNode.classList.contains('dark-mode')) {
+                apply_dark_colors()
+            } else {
+                apply_light_colors()
+            }
+        </script>
+
         <!-- BACK-TO-TOP -->
         <a href="#top" id="back-to-top"><i class="fa fa-long-arrow-up"></i></a>
 

@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from django.http import HttpResponse
 from PIL import Image
 from django.contrib.auth.models import User
@@ -75,14 +75,23 @@ def clientes(request):
     implantacao = TbCliente.objects.filter(status='Implantacao').count()
     total = ativos + inativos + implantacao
     lista_clientes = TbCliente.objects.all()
+    cliente=TbCliente.objects.all()
+    cliente_filtro = TbCliente.objects.filter()
+
     context = {
         'clientes':lista_clientes,
         'ativos':ativos,
         'inativos':inativos,
         'implantacao':implantacao,
-        'total':total
+        'total':total,
+        'cliente':cliente,
+        'cliente_filtro':cliente_filtro,
     }
     return render(request, 'dashboard/clientes.html',context)
+
+def clientevisualiz(request,id):
+    cliente = TbCliente.objects.filter(id=id)
+    return render(request,'dashboard/clientevisual.html',{'cliente':cliente,})
 
 def teste_cliente(request):
     cliente_ativo = TbCliente.objects.all()
@@ -97,8 +106,11 @@ def teste_cliente(request):
         # cliente_ativo = cliente.values('status').count()
     
 
-def modal(request):
+def modal(request):    
     return render(request, 'hx/modal.html')
+
+def modalview(request):
+    return render(request, 'hx/modalview.html')
 
 def seguradoras(request):
     ativos = Seguradora.objects.filter(status='Ativo').count()
