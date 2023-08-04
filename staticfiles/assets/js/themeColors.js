@@ -124,13 +124,18 @@ function localStorageBackup() {
         document.querySelector('body')?.classList.remove('dark-mode');
         $('#myonoffswitch3').prop('checked', true);
         $('#myonoffswitch6').prop('checked', true);
+
+        console.log('light-mode')
     }
     if (localStorage.noadarkMode) {
         document.querySelector('body')?.classList.remove('light-mode');
         document.querySelector('body')?.classList.add('dark-mode');
+        
         $('#myonoffswitch2').prop('checked', true);
         $('#myonoffswitch5').prop('checked', true);
         $('#myonoffswitch8').prop('checked', true);
+
+        console.log('dark-mode')
     }
     if(localStorage.noahorizontal){
         document.querySelector('body').classList.add('horizontal')
