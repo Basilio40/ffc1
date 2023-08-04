@@ -1,13 +1,12 @@
-
 "use strict";
 
-const handleThemeUpdate = (cssVars) => {
-    const root = document.querySelector(':root');
-    const keys = Object.keys(cssVars);
-    keys.forEach(key => {
-        root.style.setProperty(key, cssVars[key]);
-    });
-}
+    const handleThemeUpdate = (cssVars) => {
+        const root = document.querySelector(':root');
+        const keys = Object.keys(cssVars);
+        keys.forEach(key => {
+            root.style.setProperty(key, cssVars[key]);
+        });
+    }
 
 function dynamicPrimaryColor(primaryColor) {
     primaryColor.forEach((item) => {

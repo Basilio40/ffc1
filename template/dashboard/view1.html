@@ -1,0 +1,98 @@
+{% extends 'components/base.html' %}
+{% load static %}
+
+    {% block styles %}
+
+    {% endblock %}
+    
+        {% block content %}
+            <div class="envio-dados-de-vendas-container">
+                <h1 class="page-title">Envio de arquivos de dados de vendas</h1>
+                <div class="form-container">
+                    <form action="">
+                        <p>
+                            <div class="form-group">
+                                <label class="form-label">Operação</label>
+                                <select class="form-control select2 form-select select2-hidden-accessible" data-placeholder="Selecione uma operação" tabindex="-1" aria-hidden="true">
+                                    <option label="Choose one"></option>
+                                    <option value="1">Operação 1</option>
+                                    <option value="2">Operação 2</option>
+                                    <option value="3">Operação 3</option>
+                                    <option value="4">Operação 4</option>
+                                    <option value="5">Operação 5</option>
+                                </select>
+                            </div>
+                        </p>
+
+                        <p>
+                            <div class="form-group">
+                                <label for="formFile" class="form-label">Garantia Estendida</label>
+                                <input class="form-control file-input" type="file" id="formFile">
+                            </div>
+                        </p>
+
+                        <p>
+                            <div class="form-group">
+                                <div class="col-lg-4">
+                                    <label class="ckbox" for="ckbox-unchecked"><input type="checkbox" id="ckbox-unchecked"><span>Subir Arquivos Auxiliares</span></label>
+                                </div>
+                            </div>
+                        </p>
+
+                        <p>
+                            <div class="form-group">
+                                <label for="formFile" class="form-label">Regional</label>
+                                <input class="form-control file-input" type="file" id="formFile">
+                            </div>
+                        </p>
+
+                        <p>
+                            <div class="form-group">
+                                <label for="formFile" class="form-label">Lojas</label>
+                                <input class="form-control file-input" type="file" id="formFile">
+                            </div>
+                        </p>
+
+                        <p>
+                            <div class="form-group">
+                                <label for="formFile" class="form-label">Vendedores</label>
+                                <input class="form-control file-input" type="file" id="formFile">
+                            </div>
+                        </p>
+
+                        <p>
+                            <div class="form-group">
+                                <label for="formFile" class="form-label">Linhas de Produtos</label>
+                                <input class="form-control file-input" type="file" id="formFile">
+                            </div>
+                        </p>
+                        <p>
+                            <div class="form-group">
+                                <label for="formFile" class="form-label">Produtos</label>
+                                <input class="form-control file-input" type="file" id="formFile">
+                            </div>
+                        </p>
+                        <p>
+                            <div style="display: flex; justify-content: flex-end;">
+                                <button class="btn btn-primary"> <i class="fa fa-plus-square-o"></i> Enviar</button>
+                            </div>
+                        </p>
+                    </form>
+                </div>
+            </div>
+		{% endblock %}
+
+{% block scripts %}
+<!-- THEMECOLORS JS -->
+<script src="{% static 'assets/js/themeColors.js'%}"></script>
+
+<!-- INTERNAL SELECT2 JS -->
+<script src="{% static 'assets/plugins/select2/select2.full.min.js'%}"></script>
+
+<!-- INTERNAL Data tables js-->
+<script src="{% static 'assets/plugins/datatable/js/jquery.dataTables.min.js'%}"></script>
+<script src="{% static 'assets/plugins/datatable/js/dataTables.bootstrap5.js'%}"></script>
+<script src="{% static 'assets/plugins/datatable/dataTables.responsive.min.js'%}"></script>
+<!-- INDEX JS -->
+<script src="{% static 'assets/js/index1.js'%}"></script>
+{% endblock %}
