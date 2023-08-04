@@ -1,146 +1,188 @@
 @font-face {
-  font-family: "Glober";
-  src: url("../webfonts/glober/GloberRegular.otf");
-}
-
-@font-face {
-    font-family: "GloberBlack";
-    src: url("../webfonts/glober/GloberBlack.otf");
-}
-
-@font-face {
-    font-family: "GloberBold";
-    src: url("../webfonts/glober/GloberBold.otf");
-}
-
-body {
     font-family: "Glober";
-}
-
-/*:root {
-    --primary-bg-color: #8fbd56;
-    --primary-bg-hover: #82c035;
-    --primary-bg-border: #8fbd56;
-    --dark-body: #2c2f3e;
-    --dark-theme: rgba(0, 0, 0, 0.3);
-    --dark-bg: rgba(0, 0, 0, 0.2);
-    --dark-border: rgba(255, 255, 255, 0.15);
-}*/
-
-:root {
-    --dark-body: #050202;
-}
-
-/*.page img.header-brand-img {
-	height: 80px;
-	margin: 30px auto;
-}*/
-
-.disponivel-breve-container {
-    text-align: center;
-    background: url(../images/media/bg-1.jpg);
-    background:
-    linear-gradient(
-      rgba(0, 0, 0, 0.7), 
-      rgba(0, 0, 0, 0.7)
-    ),
-    url(../images/media/bg-1.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.overlay {
-    background: rgba(181, 207, 147, 0.5);
-}
-
-.disponivel-breve-container h1 {
-    font-family: "GloberBlack";
-    color: #fff;
-}
-
-.disponivel-breve-container .time-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: center;
-    margin-bottom: 30px;
-}
-
-.disponivel-breve-container .time-container .date {
-    border: 3px solid rgba(255, 255, 255, 0.3);
-    border-radius: 3px;
-    width: 110px;
-    height: 89px;
-    padding-bottom: 25px;
-    display: flex;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background: #96A282;
-    box-shadow: 2px 2px 8px #00000029;
-}
-
-.disponivel-breve-container .time-container .number {
-    font-size: 2rem;
-    font-family: "GloberBlack";
-    margin-top: 18px;
-    color: #fff;
-}
-
-.disponivel-breve-container .contato {
-    font-size: 1rem;
-}
-
-
-.page-main {
-    background: #1E211C;
-    color: #D5D5D8;
-}
-
-h1.page-title {
-    font-family: "GloberBold";
-}
-
-.card-body {
-    background: #020704;
-    border-color: #4B4E5A;
-}
-
-.card-body h3 {
-    font-size: 3rem;
-}
-
-.counter-icon {
-    border-radius: 6px;
-}
-
-.counter-icon svg {
-    width: 34px;
-    height: 38px;
-}
-
-.c-bg-teal {
-    color: #fff;
-    background: #157665;
-}
-.c-bg-yellow {
-    color: #fff;
-    background: #9B9B3A ;
-}
-.c-bg-red {
-    color: #fff;
-    background: #AA1515;
-}
-.c-bg-green {
-    color: #fff;
-    background: #495C2D;
-}
-
-.btns_container {
-    display: flex;
-    justify-content: flex-end;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin: 30px auto;
-}
+    src: url("../webfonts/glober/GloberRegular.otf");
+  }
+  
+  @font-face {
+      font-family: "GloberBlack";
+      src: url("../webfonts/glober/GloberBlack.otf");
+  }
+  
+  @font-face {
+      font-family: "GloberBold";
+      src: url("../webfonts/glober/GloberBold.otf");
+  }
+  
+  body {
+      font-family: "Glober";
+  }
+  
+  /*:root {
+      --primary-bg-color: #8fbd56;
+      --primary-bg-hover: #82c035;
+      --primary-bg-border: #8fbd56;
+      --dark-body: #2c2f3e;
+      --dark-theme: rgba(0, 0, 0, 0.3);
+      --dark-bg: rgba(0, 0, 0, 0.2);
+      --dark-border: rgba(255, 255, 255, 0.15);
+  }*/
+  
+  :root {
+      --dark-body: #050202;
+  }
+  
+  /*.page img.header-brand-img {
+      height: 80px;
+      margin: 30px auto;
+  }*/
+  
+  .disponivel-breve-container {
+      text-align: center;
+      background: url(../images/media/bg-1.jpg);
+      background:
+      linear-gradient(
+        rgba(0, 0, 0, 0.7), 
+        rgba(0, 0, 0, 0.7)
+      ),
+      url(../images/media/bg-1.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+  }
+  
+  .overlay {
+      background: rgba(181, 207, 147, 0.5);
+  }
+  
+  .disponivel-breve-container h1 {
+      font-family: "GloberBlack";
+      color: #fff;
+  }
+  
+  .disponivel-breve-container .time-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      margin-bottom: 30px;
+  }
+  
+  .disponivel-breve-container .time-container .date {
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      border-radius: 3px;
+      width: 110px;
+      height: 89px;
+      padding-bottom: 25px;
+      display: flex;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background: #96A282;
+      box-shadow: 2px 2px 8px #00000029;
+  }
+  
+  .disponivel-breve-container .time-container .number {
+      font-size: 2rem;
+      font-family: "GloberBlack";
+      margin-top: 18px;
+      color: #fff;
+  }
+  
+  .disponivel-breve-container .contato {
+      font-size: 1rem;
+  }
+  
+  .page-main.dark {
+      background: #1E211C;
+      color: #D5D5D8;
+  }
+  
+  h1.page-title {
+      font-family: "GloberBold";
+  }
+  
+  .card-body.dark {
+      background: #020704;
+      border-color: #4B4E5A;
+  }
+  
+  .card-body h3 {
+      font-size: 3rem;
+  }
+  
+  .counter-icon {
+      border-radius: 6px;
+  }
+  
+  .counter-icon svg {
+      width: 34px;
+      height: 38px;
+  }
+  
+  .c-bg-teal {
+      color: #fff;
+      background: #157665;
+  }
+  .c-bg-yellow {
+      color: #fff;
+      background: #9B9B3A ;
+  }
+  .c-bg-red {
+      color: #fff;
+      background: #AA1515;
+  }
+  .c-bg-green {
+      color: #fff;
+      background: #495C2D;
+  }
+  
+  .btns_container {
+      display: flex;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin: 30px auto;
+  }
+  
+  
+  
+  .envio-dados-de-vendas-container {
+      margin-top: 25px;
+  }
+  
+  .envio-dados-de-vendas-container .form-container {
+      text-align: center;
+      margin-top: 50px;
+  }
+  
+  .form-container {
+      max-width: 640px;
+      margin: 0 auto;
+  }
+  
+  .form-container form {
+      text-align: left;
+  }
+  
+  /* .form-container select {
+      width: 100%;
+  }
+  
+  form input[type="text"], input[type="file"], select {
+      width: 100%;
+      height: 38px;
+      border-radius: 6px;
+      padding-left: 12px;
+      font-size: 14px;
+      font-weight: normal;
+      border: 2px solid rgb(127, 127, 127, 0.5);
+      transition: border-color 150ms ease-in-out 0s;
+      outline: none;
+      color: #f0f0f0;
+      background-color: rgb(0, 0, 0, 0.2);
+    }
+  
+    form p {
+      margin: 20px auto;
+    } */
+  
